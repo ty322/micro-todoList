@@ -3,6 +3,7 @@ package conf
 import (
 	"log"
 	"strings"
+	"user/model"
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
@@ -53,6 +54,14 @@ func (c *Config) initConfig() error {
 		return err
 	}
 
+	dbUser := viper.GetString("db.user")
+	dbPassword := viper.GetString("db.password")
+	dbHost := viper.GetString("db.host")
+	dbPort := viper.GetString("db.port")
+	dbName := viper.GetString("db.name")
+	conn := strings.Join([]string{dbUser, ":", dbPassword, "@tcp(", dbHost, ":", dbPort, ")/", dbName, "?charset=utf8mb4&parseTime=true"}, "")
+
+	model.Database(conn)
 	return nil
 }
 

@@ -5,12 +5,13 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
 var DB *gorm.DB
 
 func Database(connString string) {
-	db, err := gorm.Open("mysql", connString)
+	db, err := gorm.Open("mysql", "root:123456@(localhost:3306)/micro_todolist?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {
 		panic(err)
 	}

@@ -43,7 +43,7 @@ func (*UserService) UserRegister(ctx context.Context, req *services.UserRequest,
 		return err
 	}
 	count := 0
-	if err := model.DB.Model(&model.User{}).Where("username=?", req.UserName).Count(&count).Error; err != nil {
+	if err := model.DB.Model(&model.User{}).Where("user_name=?", req.UserName).Count(&count).Error; err != nil {
 		return err
 	}
 	if count > 0 {

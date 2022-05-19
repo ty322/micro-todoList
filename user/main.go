@@ -1,6 +1,7 @@
 package main
 
 import (
+	"user/conf"
 	"user/core"
 	"user/services"
 
@@ -10,6 +11,7 @@ import (
 )
 
 func main() {
+	conf.Init("")
 	// etcd 注册件
 	etcdReg := etcd.NewRegistry(
 		registry.Addrs("127.0.0.1:2379"),
