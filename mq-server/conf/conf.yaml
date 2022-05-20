@@ -1,0 +1,15 @@
+service:
+  AppMode: debug
+  HttpPort: :3000
+
+db:
+  Db: mysql
+  DbHost: 127.0.0.1
+  DbPort: 3306
+
+rabbitmq:
+  name: amqp
+  User: guest
+  PassWord: guest
+  host: guest
+  port: 5672
