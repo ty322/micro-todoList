@@ -24,7 +24,7 @@ func GenerateToken(id uint) (string, error) {
 			Issuer:    "todoList",
 		},
 	}
-	tokenClaims := jwt.NewWithClaims(jwt.SigningMethodES256, claims)
+	tokenClaims := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	token, err := tokenClaims.SignedString(jwtSecret)
 	return token, err
 }
