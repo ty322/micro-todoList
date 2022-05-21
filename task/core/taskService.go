@@ -68,7 +68,7 @@ func (*TaskSerivce) GetTask(ctx context.Context, req *services.TaskRequest, resp
 func (*TaskSerivce) UpdateTask(Taskctx context.Context, req *services.TaskRequest, resp *services.TaskDetailResponse) error {
 	taskData := model.Task{}
 	// 查找该用户的备忘录
-	model.DB.Model(&model.Task{}).Where("id= ? AND uid= ?", req.Id, req.Uid).First(taskData)
+	model.DB.Model(&model.Task{}).Where("id= ? AND uid= ?", req.Id, req.Uid).First(&taskData)
 	taskData.Title = req.Title
 	taskData.Status = int(req.Status)
 	taskData.Content = req.Content
