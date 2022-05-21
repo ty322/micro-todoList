@@ -11,5 +11,5 @@ rabbitmq:
   name: amqp
   User: guest
   PassWord: guest
-  host: guest
+  host: 127.0.0.1
   port: 5672
