@@ -9,7 +9,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func GetTaskList(ginCtx gin.Context) {
+func GetTaskList(ginCtx *gin.Context) {
 	var taskReq services.TaskRequest
 	PanicIfTaskError(ginCtx.Bind(&taskReq))
 	taskService := ginCtx.Keys["taskService"].(services.TaskService)
